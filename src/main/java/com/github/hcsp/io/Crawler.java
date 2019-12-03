@@ -17,10 +17,10 @@ public class Crawler {
     // number,author,title
     // 12345,blindpirate,这是一个标题
     // 12345,FrankFang,这是第二个标题
-    public static void main(String[] args) throws IOException {
-        File tmp = File.createTempFile("csv", "");
-        savePullRequestsToCSV("golang/go",10,tmp);
-    }
+//    public static void main(String[] args) throws IOException {
+//        File tmp = File.createTempFile("csv", "");
+//        savePullRequestsToCSV("golang/go",10,tmp);
+//    }
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
         GitHub github = GitHub.connectAnonymously();//匿名登录
         GHRepository repository = github.getRepository(repo);
