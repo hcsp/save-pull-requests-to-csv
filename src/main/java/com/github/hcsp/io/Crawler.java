@@ -22,19 +22,19 @@ public class Crawler {
 //        savePullRequestsToCSV("golang/go",10,tmp);
 //    }
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
-        GitHub github = GitHub.connectAnonymously();//匿名登录
+        GitHub github = GitHub.connectAnonymously();
         GHRepository repository = github.getRepository(repo);
         List<GHPullRequest> pullRequests = repository.getPullRequests(GHIssueState.OPEN);
 
-        String csvFileCotent = "number,author,title"+"\n";
-        List<String> liens=new ArrayList<>();
+        String csvFileCotent = "number,author,title" + "\n";
+        List<String> liens = new ArrayList<>();
         liens.add(csvFileCotent);
-        for (int i = 0; i <n; i++) {
+        for (int i = 0; i < n; i++) {
             liens.add(getLine(pullRequests.get(i)));
 //            csvFileCotent += getLine(pullRequests.get(i));
         }
 //        Files.write(csvFile.toPath(),csvFileCotent.getBytes());
-        Files.write(csvFile.toPath(),liens);
+        Files.write(csvFile.toPath(), liens);
     }
     private static String getLine(GHPullRequest pullRequest){
             try {
