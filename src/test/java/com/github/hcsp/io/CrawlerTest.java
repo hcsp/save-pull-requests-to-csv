@@ -1,10 +1,12 @@
 package com.github.hcsp.io;
 
 import com.opencsv.CSVReader;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.kohsuke.github.GHPullRequest;
@@ -18,7 +20,7 @@ public class CrawlerTest {
 
         CSVReader reader = new CSVReader(new BufferedReader(new FileReader(tmp)));
         List<String[]> lines = reader.readAll();
-        Assertions.assertArrayEquals(lines.get(0), new String[] {"number", "author", "title"});
+        Assertions.assertArrayEquals(lines.get(0), new String[]{"number", "author", "title"});
         Assertions.assertTrue(lines.size() > 10);
 
         String[] lastLine = lines.get(10);
