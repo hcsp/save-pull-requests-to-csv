@@ -20,12 +20,12 @@ public class Crawler {
         GHRepository repository = github.getRepository(repo);
         List<GHPullRequest> pullRequests = repository.getPullRequests(GHIssueState.OPEN);
 
-        String content = "number,author,title\n";
+        StringBuilder content = new StringBuilder("number,author,title\n");
         for (int i = 0; i < n; i++) {
-            content += pullRequests.get(i).getNumber() + "," + pullRequests.get(i).getUser().getLogin() + "," + pullRequests.get(i).getTitle() + "\n";
+            content.append(pullRequests.get(i).getNumber()).append(",").append(pullRequests.get(i).getUser().getLogin()).append(",").append(pullRequests.get(i).getTitle()).append("\n");
         }
 
-        FileUtils.writeByteArrayToFile(csvFile, content.getBytes());
+        FileUtils.writeByteArrayToFile(csvFile, content.toString().getBytes());
     }
 
     public static void main(String[] args) throws IOException {
