@@ -19,13 +19,13 @@ public class Crawler {
         List<String> list = getPullRequestList(repo, n);
 
         File file = new File(path);
-        FileWriter fw = new FileWriter(file);				//创建FileWriter对象
+        FileWriter fw = new FileWriter(file); //创建FileWriter对象
 
-        int i = n + 1;
+        int i = 0;
         FileUtils.writeLines(csvFile, list);
-        while(!(i <= 0)){
-            i--;//如果没有读到文件末尾
-            fw.write(String.valueOf(list.get(i)));			//向文件写入数据
+        while (i < n){
+            fw.write(String.valueOf(list.get(i))); //向文件写入数据
+            i++;
         }
         fw.close();
     }
@@ -33,7 +33,7 @@ public class Crawler {
     public static List<String> getPullRequestList(String repo, int n) throws IOException {
         String url = "https://api.github.com/repos/" + repo + "/pulls?page=1&per_page=" + n;
         List<String> list = new ArrayList();
-        list.add("number,title,author");
+        list.add("number,title,author\n");
 
         String json = Jsoup.connect(url).ignoreContentType(true).execute().body();
         JSONArray jsonArray = JSONArray.parseArray(json);
@@ -42,13 +42,13 @@ public class Crawler {
             String number = jsonArray.getJSONObject(i).getString("number");
             String title = jsonArray.getJSONObject(i).getString("title");
             String author = jsonArray.getJSONObject(i).getJSONObject("user").getString("login");
-            list.add(String.join(",",number, author, title+"\n"));
+            list.add(String.join(",", number, author, title+"\n"));
         }
         return list;
     }
 
     public static void main(String[] args) throws IOException {
-        File file = new File("./test.csv");
-        Crawler.savePullRequestsToCSV("gradle/gradle", 20, file);
+//        File file = new File("./test.csv");
+//        Crawler.savePullRequestsToCSV("gradle/gradle", 20, file);
     }
 }

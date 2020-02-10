@@ -106,9 +106,4 @@
                 </plugin>
         </plugins>
     </build>
-
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>namenode</value>
-    </property>
 </project>
