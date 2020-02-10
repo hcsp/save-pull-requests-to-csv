@@ -1,7 +1,6 @@
 package com.github.hcsp.io;
 
 import com.alibaba.fastjson.JSONArray;
-import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 
 import java.io.*;
@@ -22,8 +21,8 @@ public class Crawler {
         FileWriter fw = new FileWriter(file); //创建FileWriter对象
 
         int i = 0;
-        FileUtils.writeLines(csvFile, list);
-        while (i < n){
+//        FileUtils.writeLines(csvFile, list);
+        while (i <= n){
             fw.write(String.valueOf(list.get(i))); //向文件写入数据
             i++;
         }
@@ -44,11 +43,12 @@ public class Crawler {
             String author = jsonArray.getJSONObject(i).getJSONObject("user").getString("login");
             list.add(String.join(",", number, author, title+"\n"));
         }
+        System.out.println(list);
         return list;
     }
 
     public static void main(String[] args) throws IOException {
-//        File file = new File("./test.csv");
-//        Crawler.savePullRequestsToCSV("gradle/gradle", 20, file);
+        File file = new File("./test.csv");
+        Crawler.savePullRequestsToCSV("gradle/gradle", 5, file);
     }
 }
