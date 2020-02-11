@@ -32,7 +32,7 @@ public class Crawler {
     public static List<String> getPullRequestList(String repo, int n) throws IOException {
         String url = "https://api.github.com/repos/" + repo + "/pulls?page=1&per_page=" + n;
         List<String> list = new ArrayList();
-        list.add("number,title,author\n");
+        list.add("number,author,title\n");
 
         String json = Jsoup.connect(url).ignoreContentType(true).execute().body();
         JSONArray jsonArray = JSONArray.parseArray(json);
@@ -43,7 +43,6 @@ public class Crawler {
             String author = jsonArray.getJSONObject(i).getJSONObject("user").getString("login");
             list.add(String.join(",", number, author, title+"\n"));
         }
-        System.out.println(list);
         return list;
     }
 
