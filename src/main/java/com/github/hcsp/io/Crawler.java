@@ -66,7 +66,7 @@ public class Crawler {
     }
 
     public static void main(String[] args) throws IOException {
-        File file = new File("./pr.csv");
+        File file = new File("./pr-test.csv");
         savePullRequestsToCSV("golang/go", 31, file);
     }
 }
