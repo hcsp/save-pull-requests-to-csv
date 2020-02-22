@@ -2,6 +2,7 @@ package com.github.hcsp.io;
 
 import com.alibaba.fastjson.JSON;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
+import com.opencsv.bean.CsvBindByPosition;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -26,6 +27,91 @@ public class Crawler {
     // 12345,blindpirate,这是一个标题
     // 12345,FrankFang,这是第二个标题
     public static final OkHttpClient client = new OkHttpClient();
+
+    public static class GitHubPullRequest {
+        // Pull request的编号
+        @CsvBindByPosition(position = 0)
+        int number;
+        // Pull request的标题
+        @CsvBindByPosition(position = 2)
+        String title;
+        // Pull request的作者的 GitHub 用户名
+        @CsvBindByPosition(position = 1)
+        String author;
+
+        public int getNumber() {
+            return number;
+        }
+
+        public void setNumber(int number) {
+            this.number = number;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public void setAuthor(String author) {
+            this.author = author;
+        }
+
+        GitHubPullRequest(int number, String title, String author) {
+            this.number = number;
+            this.title = title;
+            this.author = author;
+        }
+    }
+
+    private static class GitHubPullResponse {
+        int number;
+        String title;
+        User user;
+
+        public int getNumber() {
+            return number;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public User getUser() {
+            return user;
+        }
+
+        public void setNumber(int number) {
+            this.number = number;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
+
+        static class User {
+            String login;
+
+            public String getLogin() {
+                return login;
+            }
+
+            public void setLogin(String login) {
+                this.login = login;
+            }
+        }
+    }
+
 
     private static List<GitHubPullRequest> getGitHubPullRequestList(String repo, int number) throws IOException {
         List<GitHubPullRequest> result = new ArrayList<>();
