@@ -1,7 +1,5 @@
 package com.github.hcsp.io;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
 import org.kohsuke.github.GHIssueState;
 import org.kohsuke.github.GHPullRequest;
 import org.kohsuke.github.GHRepository;
@@ -29,7 +27,9 @@ public class Crawler {
             String lines = number + "," + author + "," + title + "\n";
             cvsFileContent += lines;
         }
-
         Files.write(csvFile.toPath(), cvsFileContent.getBytes());
     }
+//    public static void main(String[] args) throws IOException {
+//        savePullRequestsToCSV("golang/go", 10, new File("pull-request.csv"));
+//    }
 }
