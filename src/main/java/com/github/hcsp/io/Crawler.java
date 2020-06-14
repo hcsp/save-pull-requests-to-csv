@@ -16,7 +16,7 @@ public class Crawler {
     // number,author,title
     // 12345,blindPirate,这是一个标题
     // 12345,FrankFang,这是第二个标题
-    public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
+    public static void savePullRequestsToCSV(String repo, int n, File csvFile) {
         try {
             List<String> message = getMessage(repo, n);
             FileUtils.writeLines(csvFile, message);
@@ -25,7 +25,7 @@ public class Crawler {
         }
     }
 
-    public static List<String> getMessage(String repo, int n) throws IOException {
+    private static List<String> getMessage(String repo, int n) throws IOException {
         ArrayList<Element> elements = getElements(repo, n);
         List<String> message = new ArrayList<>();
         message.add("number,author,title");
@@ -40,7 +40,7 @@ public class Crawler {
         return message;
     }
 
-    public static ArrayList<Element> getElements(String repo, int n) throws IOException {
+    private static ArrayList<Element> getElements(String repo, int n) throws IOException {
         return Jsoup.connect("https://github.com/" + repo + "/pulls").get().select(".js-issue-row");
 
     }
