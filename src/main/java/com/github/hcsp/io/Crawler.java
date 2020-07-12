@@ -36,13 +36,13 @@ public class Crawler {
         Elements issues = document.select(".js-issue-row");
         List<String> lines = new ArrayList<>();
         lines.add("number,author,title");
-        for(int i = 0;i < n; i++){
+        for (int i = 0; i < n; i++) {
             int num = Integer.parseInt(issues.get(i).id().split("_")[1]);
             String title = issues.get(i).select("[data-hovercard-type=pull_request]").text();
             String author = issues.get(i).select("[data-hovercard-type=user]").text();
             lines.add(num + "," + author + "," + title);
         }
-        FileUtils.writeLines(csvFile,lines);
+        FileUtils.writeLines(csvFile, lines);
         response.close();
     }
 }
