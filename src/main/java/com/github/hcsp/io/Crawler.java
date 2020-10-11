@@ -27,7 +27,7 @@ public class Crawler {
     // 12345,FrankFang,这是第二个标题
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException, URISyntaxException {
 
-        Document document = Jsoup.parse(get(repo));
+        Document document = Jsoup.parse(getByRepoName(repo));
 
         Elements elements = document.select(".js-issue-row");
 
@@ -82,8 +82,10 @@ public class Crawler {
         writer.close();
     }
 
-    public static String get(String repo) throws URISyntaxException, IOException {
-        URIBuilder uriBuilder = new URIBuilder(repo);
+    public static String getByRepoName(String repo) throws URISyntaxException, IOException {
+        String url = String.format("https://github.com/%s/pulls", repo);
+
+        URIBuilder uriBuilder = new URIBuilder(url);
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(uriBuilder.build());
@@ -99,10 +101,14 @@ public class Crawler {
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        File projectDir = new File(System.getProperty("basedir", System.getProperty("user.dir")));
-        File testFile = new File(projectDir, "target/test.csv");
+        File projectDir = new File(System.getProperty("user.dir"));
+        File testFile = new File(projectDir, "test.csv");
 
-        savePullRequestsToCSV("https://github.com/gradle/gradle/pulls", 1, testFile);
+        if (!testFile.exists()) {
+            testFile.createNewFile();
+            savePullRequestsToCSV("gradle/gradle", 1, testFile);
+        }
+
     }
 }
 
