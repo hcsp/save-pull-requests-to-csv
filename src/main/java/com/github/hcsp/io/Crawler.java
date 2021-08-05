@@ -48,7 +48,4 @@ public class Crawler {
         }
     }
 
-    public static void main(String[] args) throws IOException, ParseException {
-        savePullRequestsToCSV("golang/go", 20, new File("csvTestFile.csv"));
-    }
 }
