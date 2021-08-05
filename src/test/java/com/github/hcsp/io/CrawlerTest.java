@@ -12,7 +12,7 @@ import org.kohsuke.github.GitHub;
 
 public class CrawlerTest {
     @Test
-    public void test() throws Exception {
+   public void test() throws Exception {
         File tmp = File.createTempFile("csv", "");
         Crawler.savePullRequestsToCSV("golang/go", 10, tmp);
 
