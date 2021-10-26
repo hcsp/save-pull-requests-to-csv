@@ -20,7 +20,6 @@ public class CrawlerTest {
         List<String[]> lines = reader.readAll();
         Assertions.assertArrayEquals(lines.get(0), new String[] {"number", "author", "title"});
         Assertions.assertTrue(lines.size() > 10);
-
         String[] lastLine = lines.get(10);
         GHPullRequest pull =
                 GitHub.connectAnonymously()
