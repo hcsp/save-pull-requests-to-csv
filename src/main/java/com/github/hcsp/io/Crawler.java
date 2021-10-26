@@ -29,7 +29,7 @@ public class Crawler {
         // 创建一个default 客户端
         CloseableHttpClient httpclient = HttpClients.createDefault();
         // 发起了一个http Get请求
-        StringBuilder target = new StringBuilder("https://api.github.com/repos/" + repo + "/issues");
+        StringBuilder target = new StringBuilder("https://api.github.com/repos/" + repo + "/pulls");
         HttpGet httpGet = new HttpGet(String.valueOf(target));
         // 执行这个请求拿到response
         httpGet.addHeader("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)");
@@ -55,7 +55,7 @@ public class Crawler {
         List<String> linesList = new ArrayList<>();
         linesList.add("number,author,title");
         for (int i = 0; i < n; i++) {
-            JSONObject account = (JSONObject) issuesInfoList.getJSONObject(i).get("user");
+                JSONObject account = (JSONObject) issuesInfoList.getJSONObject(i).get("user");
                 Integer number = (Integer) issuesInfoList.getJSONObject(i).get("number");
                 String title = (String) issuesInfoList.getJSONObject(i).get("title");
                 String user = account.getString("login");
