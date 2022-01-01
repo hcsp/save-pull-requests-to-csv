@@ -19,7 +19,7 @@ public class Crawler {
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
         GitHub gitHub = GitHub.connectAnonymously();
         GHRepository repository = gitHub.getRepository(repo);
-        List<GHPullRequest> pullRequests = repository.getPullRequests(GHIssueState.CLOSED);
+        List<GHPullRequest> pullRequests = repository.getPullRequests(GHIssueState.OPEN);
         String[] csvFileContent = {"number", "author", "title"};
         List<String[]> data = new ArrayList<>();
         data.add(csvFileContent);
@@ -29,7 +29,7 @@ public class Crawler {
                 String number = String.valueOf(pullRequests.get(i).getNumber());
                 String title = pullRequests.get(i).getTitle();
                 String author = pullRequests.get(i).getUser().getLogin();
-                data.add(new String[]{number, title, author});
+                data.add(new String[]{number, author, title});
             }
             writer.writeAll(data);
             writer.close();
