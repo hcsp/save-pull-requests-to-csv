@@ -25,7 +25,7 @@ public class Crawler {
         for(int i = 0; i < n; i++){
             GHPullRequest pull = ghPullRequests.get(i);
             String number = String.valueOf( pull.getNumber() );
-            String author = pull.getUser().getName();
+            String author = pull.getUser().getLogin();
             String title = pull.getTitle();
             String[] entry = {number,author,title};
             entries.add(entry);
