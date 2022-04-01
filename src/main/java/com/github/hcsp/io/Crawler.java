@@ -16,24 +16,24 @@ public class Crawler {
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
 
         List<String[]> entries = new ArrayList<>();
-        entries.add(new String[]{"number", "author", "title"});//第一列
+        entries.add(new String[]{"number", "author", "title"}); //第一列
 
         GHRepository repository =
                 GitHub.connectAnonymously().getRepository(repo);
         GHPullRequestQueryBuilder ghPRBuilder = repository.queryPullRequests();
         List<GHPullRequest> ghPullRequests = ghPRBuilder.list().asList();
-        for(int i = 0; i < n; i++){
+        for ( int i = 0; i < n; i++ ){
             GHPullRequest pull = ghPullRequests.get(i);
             String number = String.valueOf( pull.getNumber() );
             String author = pull.getUser().getLogin();
             String title = pull.getTitle();
-            String[] entry = {number,author,title};
+            String[] entry = {number, author, title};
             entries.add(entry);
         }
 
         OutputStreamWriter is = new OutputStreamWriter(new FileOutputStream(csvFile), "utf-8");
         ICSVWriter build = new CSVWriterBuilder(is).build();
-        build.writeAll(entries,false);
+        build.writeAll(entries, false);
         build.flushQuietly();
 
     }
