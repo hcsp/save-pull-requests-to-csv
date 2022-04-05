@@ -21,9 +21,7 @@ public class Crawler {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(csvFile));
             bufferedWriter.write("number,author,title" + "\n");
             for (GHPullRequest pullRequest : pullRequests) {
-                bufferedWriter.write(pullRequest.getNumber() + "," +
-                        pullRequest.getUser().getLogin() + "," +
-                        pullRequest.getTitle() + "\n");
+                bufferedWriter.write(pullRequest.getNumber() + "," + pullRequest.getUser().getLogin() + "," + pullRequest.getTitle() + "\n");
             }
             bufferedWriter.close();
         } catch (IOException e) {
@@ -33,9 +31,5 @@ public class Crawler {
 
     private static List<GHPullRequest> getPullRequests(String repo, int n) throws IOException {
         return GitHub.connectAnonymously().getRepository(repo).getPullRequests(GHIssueState.ALL).subList(0, n + 1);
-    }
-
-    public static void main(String[] args) throws IOException {
-        savePullRequestsToCSV("gradle/gradle", 10, File.createTempFile("csv", ""));
     }
 }
