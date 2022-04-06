@@ -15,6 +15,14 @@ public class Crawler {
     // number,author,title
     // 12345,blindpirate,这是一个标题
     // 12345,FrankFang,这是第二个标题
+
+    /**
+     * 将指定仓库的前 n 个 pull request 写入 csvFile 指定的文件中
+     *
+     * @param repo    仓库名
+     * @param n       获取前 n 个pull request
+     * @param csvFile csvFile 指定的文件
+     */
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) {
         try {
             List<GHPullRequest> pullRequests = getPullRequests(repo, n);
@@ -29,6 +37,14 @@ public class Crawler {
         }
     }
 
+    /**
+     * 获取指定仓库的前 n 个pull request
+     *
+     * @param repo 仓库名
+     * @param n    获取前 n 个pull request
+     * @return 指定仓库的前 n 个pull request
+     * @throws IOException IOException
+     */
     private static List<GHPullRequest> getPullRequests(String repo, int n) throws IOException {
         return GitHub.connectAnonymously().getRepository(repo).getPullRequests(GHIssueState.ALL).subList(0, n + 1);
     }
