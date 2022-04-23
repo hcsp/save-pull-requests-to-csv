@@ -10,11 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.kohsuke.github.GHPullRequest;
 import org.kohsuke.github.GitHub;
 
+import static com.github.hcsp.io.Crawler.savePullRequestsToCSV;
+
 public class CrawlerTest {
     @Test
     public void test() throws Exception {
         File tmp = File.createTempFile("csv", "");
-        Crawler.savePullRequestsToCSV("golang/go", 10, tmp);
+        savePullRequestsToCSV("golang/go", 10, tmp);
 
         CSVReader reader = new CSVReader(new BufferedReader(new FileReader(tmp)));
         List<String[]> lines = reader.readAll();
