@@ -1,0 +1,374 @@
+number,author,title
+48534,chanxuehong,go/token: a little performance improvement for IsIdentifier function
+48516,HowJMay,x/mod/module: accept trailing slash in MatchPrefixPattern
+48514,vpachkov,cmd/{compile,link}, runtime: check a microarchitecture level at startup
+48480,cuishuang,strings: replace the expression to the existing function
+48464,burakkoken,log: improve logger implementation
+48456,chanxuehong,go/token: fix File.AddLineColumnInfo logic
+48452,chanxuehong,go/token: improve the performance of IsKeyword
+48450,ieure,encoding/xml: allow mismatched `XMLName` / field metadata tag names
+48440,GanZhiXiong,Make REAMDE more normalized and more readable.
+48427,jmalloc,net/http/httputil: allow MIME parameters when detecting SSE in ReverseProxy
+48426,YenForYang,Unify "unreachable" panic messages
+48373,najeira,crypto/cipher: use AEAD.NonceSize to make nonce in the example
+48333,17twenty,time/format: add 24 hour Kitchen format for non AM/PM
+48292,stevenjohnstone,[dev.fuzz] internal/fuzz: always perform logical not on booleans when…
+48273,sooslaca,crypto/tls: populate peerCertificates before validation fails
+48267,paulsmith,text/template: add the 'parent' keyword
+48236,heyuanliu-intel,Add padding to fix HITM issue across CPU sockets 
+48229,cch123,crypto/tls: replace tls Conn's rawInput with a small buffer when Read timeout
+48209,nimelehin,cmd/compile: boost inlining into FORs
+48202,Farial-mahmod,updating README
+48190,180909,all: update URLs in comments to go.dev
+48104,carlmjohnson,net/http: add MaxBytesHandler
+48038,jsign,net/http: clarify TimeoutHandler buffer writes to memory
+48028,Gusted,html/template: remove unused `mode` field on `Tree` struct
+48015,Mantelijo,os/user: add users and groups iterators
+48005,180909,README.md: update contribute URL
+48003,devnexen,minimum armeabi support fix for NetBSD upstream.
+47983,gobwas,container/list: add Sort() method
+47972,Windsooon,html/template: Tree is only updated after Execute() is called
+47898,0xc0d,net/mail: fix EOF error while reading header-only message
+47804,go101,runtime: avoid an unnecessary memclrNoHeapPointers call for the makeslicecopy/growslice/rawstring functions
+47786,vpachkov,cmd: support mapping symbols for ARM64
+47772,danielkucera,net: listen on specified multicast address
+47739,kumakichi,CONTRIBUTORS: add a missing name
+47730,Xe,cmd/dist: support embedding of toolchain rev by envvar
+47706,ok-john,math/big: check for n == 0 in ModInverse
+47679,CAFxX,runtime: predict stack sizing
+47640,cafra,bufio: add Reader.DiscardRune(n int)
+47598,HowJMay,math: add ARM64 Abs assembly implementation
+47589,HowJMay,math: add ARM64 implementation of frexp
+47585,tjamet,net/http: add a RoundTripperFunc helper
+47536,HowJMay,math: add ARM64 implementation of hypot
+47531,korzhao,cmd/go: go clean should list all deleted files
+47516,Yuuki77,go/internal/load: fix bad error message for local imports in module mode
+47489,180909,cmd/go: update bug.go bugHeader
+47469,korzhao,compress/flate: reuse code to rewrite writeCode()
+47460,korzhao,go/parser: resolve the TODO of parseFuncType
+47443,korzhao,runtime/pprof: profileWriter,delete unused err
+47417,liuyongchen,list 'e.next' points to nil - Dev.boringcrypto.go1.16
+47393,hzzb,cmd/compile: fix the outdated comment about bottomUpVisitor
+47383,able8,crypto/x509: fix typo in error message
+47362,0x2d3c,encoding/asn1: change fmt.Errorf to errors.New
+47361,0x2d3c,bufio: a few small changes
+47341,toywei,Update list.go make it easy to read
+47340,jimmyyem,update Tiny allocator description in line 1008 of src/runtime/malloc.go
+47333,uji,go/printer: secure margin for testing on slowly device
+47249,1800alex,runtime: add check before using arguments with -buildmode=c-archive and -buildmode=c-shared on non glibc systems such as musl/uclinux
+47237,kadern0,cmd/compile, go/types, types2: rename 'imported and not used' error to 'imported but not used'
+47218,yota9,cmd/link: fix zero offset in funcnametab
+47169,qingyunha,cmd/link: make bss section offset at end of its segment
+47167,madCdan,link: add .eh_frame section for amd64/arm64 ELF binaries
+47163,gaul,internal/cpu: Prefer XOR CX, CX over MOV 0, CX in xgetbv
+47155,hkhere,cmd/compile: use `else if` for mutually exclusive `if` statements
+47117,wangyuntao,cmd/compile: correct comment: walkSwitch -> walkSelect
+47085,qingyunha,cmd/internal/goobj: remove unused fields of Reader
+47073,derekparker,crypto/boring: Refactor boringcrypto codebase
+47038,soroushj,spec: link "addressable" to its definition
+47029,Illirgway,mime: keep going parsing after trailing semicolon
+46971,HowJMay,cpu: add HasSHA512 feature bit in ARM64
+46970,HowJMay,crypto/sha512: implement sha512 with ARMv8.2 features
+46953,emcfarlane,cmd/go/internal/work: remove handler shared work state
+46923,neilalexander,net/http: guarantee that the Transport dial functions are respected in js/wasm
+46904,fengsheng666,net/http/httputil: add network optimize item when send small body
+46873,HowJMay,runtime: optimize multiple EOR with EOR3 on ARM64
+46862,Illirgway,strings: adding micro-optimization for TrimSpace
+46813,chrisgillis,image/gif: avoid decoding past the first frame in decode()
+46810,rboyer,crypto/x509: always emit a critical SAN extension if the Subject is empty in a CSR
+46808,NickyBoy89,cmd/compile/internal/noder: fix a deadlock when compiling large packages of incorrect files
+46797,diamondburned,cmd/cgo: output cgo pragmas as object instead of go
+46796,EdSchouten,net/http: fix blocking finishAsyncByteRead.Read method
+46781,cuiweixie,cmd/go: delete useless git cmd option
+46715,heydon-lee,unicode/utf8: add some methods to handle strings
+46714,josephcopenhaver,net/http: add MaxConnLifespan to Transport
+46663,knusbaum,go/build: trim filename extension starting at the final dot
+46637,jayateertha043,Allow domain cookie to be set on ip address to replicate browser behavior
+46598,HeGaoYuan,cmd/compile/internal/types: fix typo in comment
+46589,scsgxesgb,crypto/tls: Should use c.sendAlert(alertInternalError) instead of c.sendAlertLocked(alertInternalError) ?
+46571,ayang64,[dev.fuzz] internal/fuzz: enable fuzzing for freebsd
+46484,liuzhijiang,cmd/compile/internal/ssa: remove unnecessary low index 0
+46483,wooong-git,runtime/mfinal: reduce const var code 
+46455,MagicalTux,image: add ListFormats
+46421,lcr2000,net/rpc: reduce the execution of reflect and decode
+46376,tylitianrui,bytes: remove unnecessary low index 0 
+46368,helios741,runtime/proc: update forcePreemptNS magic number
+46309,skgsergio,crypto/tls: add crypto/tls.VersionName function
+46278,jing-rui,net/http: fix hijack hang at abortPendingRead
+46266,BenLubar,crypto/rand: limit getRandomValues buffer size
+46197,April3xx,BigEndian add int16 to process negative value
+46192,8i8,modload: alldocs: assist the digest of module documentation
+46189,ttsugriy,math/bits: use Wilkes-Wheeler-Gill algorithm for OnesCount64
+46172,tylitianrui,remove  unnecessary xor
+46149,jim3ma,net: add tcp WriteTo func to enable splice socket data to file
+46102,zxc111,net/http: add test for proxyAuth
+46073,vitaly-zdanevich,net/url: fix documentation quotes
+46051,hzzb,runtime: add missing persistentalloc memstats
+46036,nejisama,crypto/tls: use a cache to save x509 certificate in the tls connection
+46029,ycongal-smile,crypto/x509: fix certificate request creation with RSA-PSS 
+46007,teivah,flate: improve huffman flate hcode spatial locality
+45959,ImanolBarba,net: adding IsNotFound to DNSError returned from cgo reverse resolution
+45840,nerdatmath,net: clarify return values from Lookup* calls
+45766,marsyrc,reflect/type.go: add case judgement before scanning T's and V's methods
+45748,i6448038,strings: fix typo of the function explode
+45719,jamdagni86,cmd/go: add support for wildcards in 'go list -m'
+45681,Foxboron,cmd/link: support full relro
+45660,Gaubee,syscall/js Implement runtimeError so that func can throw exceptions by returnFeature syscall js runtime error
+45642,tie,cmd/go: allow generate to skip missing files
+45595,upsampled,crypto/ecdsa: adding an IsValid method to PublicKey
+45583,namannimmo10,misc/cgo: clean up exe.go
+45509,dnephin,cmd/go: use exit code from compiled test binary on error
+45376,nidhi-doshi,os: set the correct op while returning errors from WriteAt, ReadFrom, ReadAt
+45339,zy84338719,archive/zip: optimize reader func ReadDir
+45331,hysios,ignoreCN disables interpreting parsePrintableString as ASN.1. See issue 21339
+45228,kdumontnu,encoding/csv: allow for interpretation of empty lines
+45181,snxx-lppxx,Add registry file
+45142,kachick,strings: adjust and add tests for strings.Index and strings.LastIndex
+45125,Prajwal-Koirala,all: format all shell scripts in Go repo with shfmt
+45028,stffabi,cmd/compile/mips: intrinsify bits.RotateLeft32 on MIPS
+45023,AdamKorcz,math/big: add fuzzer
+44998,RustyDust,cmd/link: bring back R_ARM_V4BX for Annapurna AL-212 and possibly others
+44935,tkmru,misc/ios: change to explicitly use python3 in Xcode
+44899,andrius4669,mime: fix FormatMediaType's RFC 2616 compliance
+44804,jbampton,misc/chrome: clean up the gophertool HTML
+44800,jbampton,doc: fix links
+44786,cs-chicken,runtime:fix wrong comment
+44569,ZuoFuhong,os: unify logic for io.ReadAll and os.ReadFile
+44565,Soontao,net/http: support mulit same transfer-encoding header
+44536,mbartosch,crypto/x509/pkix/pkix: add missing RFC 5280 RDN OIDs
+44535,ct16k,net/http/httputil: add a ModifyRequest method to ReverseProxy
+44477,mehmetcantas,database/sql: add empty driver name check on Register method
+44400,rjenkins,runtime: remove unnecessary bitwise XOR in noescape
+44348,ZachPlunkett,bufio: update SplitFunc documentation by mentioning ErrFinalToken
+44285,jbampton,doc: lint Markdown for trailing spaces and code blocks
+44284,jbampton,all: remove unneeded trailing whitespace from Go files
+44282,jbampton,all: remove unneeded 'type="text/javascript"' from HTML script tag
+44173,zimbatm,cmd/gofmt: atomically swap the new file
+44130,bpowers,net: report local address on unsuccessful TCP dial attempts
+44123,logandavies181,net/http: add new error type to be returned on unsuccessful CONNECT request
+43914,openset,os: update CreateTemp
+43879,HowJMay,debug/pe: fix OOM caused by huge NumberOfSymbols
+43878,dreamerjackson,strconv/ftoa.go: add comment when format print float but Grisu3 algorithm failed
+43869,dreamerjackson,runtime/proc.go: add comment when schedule in the GC mark phase
+43831,HowJMay,cmd/compile: better error msg for impossible type assertions 
+43799,dlsniper,io/ioutil: flag package and functions with the Deprecated marker
+43779,Miss-you,encoding/json: don't use the same name for nested loop variables
+43742,billallen256,crypto/ed25519: This change modifies Go to clarify docs for PrivateKey.Sign()
+43716,ggaaooppeenngg,encoding/json: increment byte counter when using decoder.Token
+43713,ralic,src/strings: strings.go -Enhance ContainsIn,EqualsIn to support optional strlist
+43707,msdundar,src/strings: use comprehensive examples in special functions
+43690,klauspost,crypto/md5: optimize amd64 assembly
+43584,pschou,fmt/scan: TODO for complex N or Ni -> complex64
+43580,pschou,encoding/pem: PEM multiline headers
+43550,pschou,math/bits: Left and right bit shifter for byte slices
+43535,Fryuni,cmd/go: add -modversion flag setting main module version on debug.ReadBuildInfo
+43531,pschou,crypto/ecdsa: change hashToBytes to use copy instead of calling another function
+43516,xyproto,crypto/x509: accept certificate requests that are valid according to spec
+43492,LockGit,strings: add StripSlashes function for strings pkg
+43488,pschou,design: NewTickerStartingAt doc
+43463,pschou,Fixes crypto/x509#10171: verify PEM encoded DER upon decryption with password
+43461,jimist,net/mail: add UT to mail ParseDate
+43372,MilesLin,net/smtp: Add 'From' header to smtp/example_test.go
+43334,imxyb,os: fix openFileNolog when open dir in windows
+43321,eltociear,misc/trace: fix typo in message
+43290,dustinxie,crypto/elliptic: extend Curve to support general elliptic curve y² = x³ + ax + b
+43287,Mstrodl,cmd/go: support go go gadget syntax
+43143,imxyb,net/http: opt code for removeIdleConnLocked method.
+42997,GuruneLee,Access multipart Form.Value map
+42994,kamijin-fanta,cmd/go/internal/lockedfile: ignore errors if locks are not supported
+42960,hillu,net/http/fcgi: make test message adhere to FastCGI spec
+42869,kingljl,req.Method & req.URL.Host &! is ishttp verification submission 
+42868,kingljl,Adjust code position:(t.nextProtoOnce.Do(t.onceSetNextProtoDefaults))
+42850,suzaku,strings: add AppendJoin function for strings.Builder
+42842,AlphaHot,cmd/compile: remove unused function
+42808,SamWhited,encoding/xml: prevent multiple XMLNS attributes
+42687,isislovecruft,crypto/subtle: remove undefined behaviour from ConstantTimeLessOrEq
+42597,dunglas,net/http: allow sending 1xx responses
+42578,brainexe,cmd/go: go.mod: improve wrong revision error slightly
+42541,imxyb,runtime/pprof: method StartCPUProfile adds a parameter to allow custom cpu rate.
+42511,JonanOribe,refractor
+42383,mr-agrwal,net/http: This change modifies Go to add support for charset in reverseproxy for event-stream
+42272,3noch,encoding/csv: improve docs for ReadAll when no input is left
+42043,charlesjlee,encoding/xml: increase test coverage
+42024,karlovskiy,crypto/x509/pkix: add styled string conversion of PKIX names
+42011,kkoogqw,crypto/des: Performance optimization of permutation function in DES algorithm
+41875,shouldend,image/jpeg: skip consecutive 0xff bytes
+41828,mroth,sort: inline search convenience wrappers
+41627,tt,mime: define CharsetError
+41565,legitparty,cmd/go/internal/modfetch/codehost: forward the error from the underlying git call
+41433,cneira,syscalls: Separate illumos from solaris.
+41363,caarlos0,encoding/json: added tests for MarshalerError.Unwrap
+41316,ethe,cmd/objdump: support reading from a pipe
+41143,kassiansun,sync/atomic: remove duplicated comment for atomic.Value
+41045,dunglas,net/http: add a package to parse and serialize Structured Field Values
+41041,secret104278,time: avoid racing condition in NewTricker example
+41031,artbegolli,cmd/go/internal/get: add support for go get in azure devops repos
+41003,felix,crypto/elliptic: update doc references for elliptic point compression
+40983,Segflow,encoding/json: return a different error type for unknown field if they are disallowed
+40955,steeve,cmd/cgo: add JNI's jmethodID/jfieldID to uintptr for Android NDK
+40935,nathan-fiscaletti,cmd/go: updates documentation for 'go help build'
+40897,jakub-bt-vs,Fixes #40926 for HTTP response on write error.
+40829,nathan-fiscaletti,cmd/go: support non .go named files in go build
+40811,HowJMay,misc/cgo: Add test for C union read/write
+40801,fionera,plugin: add OpenFile to allow loading of Plugins from file descriptors
+40753,tdakkota,[dev.go2go] go/types: fix endless recursion on recursive type constra…
+40738,mchum,encoding/asn1: add dynamic length integer support for base 128 integer parsing
+40696,cfclong,Update auth.go
+40581,liu-xuewen,cmd/go: remove duplicate initialization of buildcontext
+40428,suzaku,strings: improve performance of ToUpper and ToLower
+40389,eduardbme,doc: improve re.ReplaceAllString documentation related to Expand part
+40384,lukaszgryglicki,database/sql: add on-connect hook support
+40375,madeken,Add TryLock method to Mutex
+40308,gua-pian,Limit non-file parts under 10MB
+40284,qbradq,regexp: link to the regexp syntax documentation from go doc regexp
+40283,qbradq,cmd/go: improve gopath documentation about internal directories
+40178,ericwj,path/filepath: revert "path/filepath: fix EvalSymLink documentation"
+40051,tdakkota,[dev.go2go] go/types: avoid endless recursion in self-recursive newty…
+40036,tt,net/mail: improve date parsing
+39957,utkarsh-extc,strings: add support to split in reverse direction
+39870,shibumi,crypto/rsa: add rand initialization for rsa.SignPSS
+39795,sebastien-rosset,encoding/asn1: support ObjectIdentifier sub-oid values greater than 2^31-1
+39769,xiyichan,Update path.go
+39639,luizluca,crypto/x509: add directory name constraints
+39556,kokes,encoding/csv: allow for interpretation of empty lines
+39527,JakeMakesStuff,image/gif: Add EncodeAllMultithreaded
+39494,brettKK,fix stderr to stdout
+39474,prospero78,Exchange with recommend linter
+39450,chanxuehong,feat: close expired conn as soon as possible
+39418,redhug1,Add option to Limit maximum number of go routines launched from serve()
+39396,jarednielsen,docs: Add missing import in tutorial
+39334,ghost,A+C: add Unai Corzo (individual CLA)
+39245,jarifibrahim,syscall: support O_SYNC flag for os.OpenFile on windows
+39224,infinitepr0,net/http: adds ability to marshall cookiejar to struct
+39184,xujianhai666,container/list: Add elementPool for alloc new element
+39171,dunglas,net/http: prevent incorrect redirections when the path contains %2F%2F
+39110,alex-semenyuk,math: add more examples
+39073,chriskaly,encoding/asn1: respect omitempty when marshaling nil values
+39015,gobwas,container/list: check the list state before mutation
+38997,kkroo,net/http: remove redundant numeric StatusCode from Status message
+38854,kamermans,image/gif: treat NUL byte between sections or before trailer as trailer
+38814,justplesh,cmd: fail go mod vendor on case-insensitive import collisions
+38809,BurtonQin,crypto/tls: add r.Lock to protect r.flows in WriteTo
+38808,MatGarreau,pkg/regexp: fix example for Match function
+38779,wking,crypto/x509: subject/issuer hint fallback for unknown-authority errors
+38760,guonaihong,net/http:Fix 308 jump and lose authorization header
+38741,abemotion,net/http: document when (RoundTripper).RoundTrip may return a nil *Response
+38729,alex-semenyuk,database/sql/driver: add value converter test for unused type
+38696,yufeiminds,cmd/go/internal/get: expose error when git ls-remote failed
+38566,qingyunha,runtime: remove unnecessary uint32 convert for bits
+38549,qingyunha,runtime: update mspan comment
+38534,medcl,net/http: fix infinite 301 redirects of http.FileServe
+38430,GeorgeSen,container/list: modify the move function
+38353,nerd2,net/http/httputil: reverse and close quit channel in DumpRequestOut to fix lockup
+38324,klauspost,compress/flate: improve decompression speed
+38322,nerd2,net/http: fix request body race in httputil DumpRequestOut
+38176,staticmukesh,cmd/cover: change coverage precision to .2f
+37981,sukop,math/big: fix typo in Lucas chain
+37949,hugolgst,strings: change examples for ToTitle and Title, fixes #37334
+37944,brianonn,cmd/go, flag: make undefined flag msg less ambiguous. Fixes #36364
+37919,brompwnie,doc/faq: update the MITM reference to "machine-in-the-middle" 
+37879,draveness,runtime: remove duplicate disable wb operation
+37868,JAicewizard,go/doc: make formatting comments more flexible using an interface
+37228,aka-rider,errors: add new function Temporary(error) bool
+37148,BurtonQin,src/runtime/testdata/testprogcgo: fix goroutine leak on timeout
+36979,tiriplicamihai,os: document Process.Pid
+36903,husio,os: error testing functions respect Unwrapper interface
+36715,GrigoriyMikhalkin,cmd/go: validate module path in mod why
+36692,ncruces,html/template: remove RawGit link from docs
+36678,dunglas,net/http/httputil: add support for X-Forwarded-Proto, X-Forwarded-Host and an option to not trust forwarded headers in ReverseProxy
+36454,petar-dambovaliev,index/suffixarray: add LongestCommonPrefix method to Index
+36412,sleepingj,add a scope variable choose
+36271,viile,database/sql: support db filed value is NULL with  variable type is string
+36256,stefaro,os: check whence value before trying to seek
+36244,GrigoriyMikhalkin,cmd/go: return user provided path instead of mangled ImportPath
+36239,ivzhh,cmd/compile: remove unnecessary MOV in channel receiving
+36203,zhiqiangxu,runtime: state more explicitly the behavior for buffered channels in the chansend's fast path under extreme conditions.
+36198,wcc526,path/filepath: fix readDirNames to not unconditionally read a directory
+35909,CannibalVox,cmd/go: make cgo pkg-config work w/ lib paths that have spaces
+35893,sngchlko,net: support TCP half-close when HTTP is upgraded in ReverseProxy
+35859,linzhp,cmd/go/internal/modget: get correct first element of import path
+35764,Segflow,cmd/compile: return LITERAL on INDEXMAP when map and key are LITERALs
+35682,jamdagni86,path/filepath: Glob fails if it has a wildcard and ends with /
+35681,novalagung,net/http: add additional doc regarding http request context cancel behaviour
+35540,paragonie-scott,crypto/rand: detect biases in rand.Int(), clarify internals
+35191,tjenkinson,database/sql: prevent ErrBadConn from driver.Open()
+35040,lemmerelassal,encoding/binary: removal of unnecessary boundary checks.
+35017,kindermoumoute,text/tabwriter: add ANSI Graphics Rendition format
+34995,amwolff,bytes, strings: make Title treat Unicode punctuation as separators
+34843,niallnsec,debug/pe: limit the maximum size of the string table buffer to 1MB
+34832,artemyarulin,expvar: make possible to delete all exported variables
+34797,ambernardino,mime/multipart: Always show cte header 
+34629,psampaz,cmd/api: simplify building files list in Walker.ImportFrom
+34452,klnusbaum,net: add text marshalling and unmarshalling for HardwareAddr
+34430,zhangyunhao116,net/url: use conversion table in shouldEscape
+34104,doddi,cmd/go: package modules into mod format for upload
+33900,XVilka,runtime: support c-shared buildmode for openbsd-amd64
+33882,hullarb,net/http: improve FileServer error logging
+33682,drivebyer,runtime: fix the Goroutine scheduler comment
+33572,Stebalien,encoding/binary: fix error on unexpected EOF while reading a varint
+33416,bserdar,encoding/json: This CL adds Decoder.InternKeys
+33394,nsajko,math: replace exported variables with runtime.KeepAlive in benchmarks
+33343,liuchang0812,mod: wrong require when migrate from dep with source config
+33318,bodgit,crypto/x509: add SignatureAlgorithm.Hash()
+33248,elbeardmorez,runtime: fix gdb pretty print for slices
+33218,branelmoro,Fixes #31514 - implement partial flush for decompressor
+33144,zspcn,crypto/x509: include ed25519 in MarshalPKIXPublicKey error message
+33118,philip-firstorder,archive/zip: fix zip64 extra headers problems
+33048,blindpirate,mime/multipart: make sure all contents are read from multipart form
+32619,Al2Klimov,os: open(2) files w/o blocking
+32522,dbolkensteyn,encoding/xml: use a depth counter rather than recursion in Decoder.Skip()
+32520,araujobsd,runtime: Allow users of FreeBSD OS to choose between MADV_FREE and MADV_DONTNEED.
+32429,abhishekkr,cmd/go: create GOTMPDIR if missing instead of failing
+32302,nishaad78,database/sql: run prepare & execute commands on the same conn from DB pool
+31994,mfojtik,os: return link destination on error
+31875,samwelkey,container/ring: optimize the Move method of the Ring struct
+31867,TheTesla,GetConfigForClient replaces cert and key arguments
+31738,zte-majiang,cmd/link, runtime: reserve 48 bytes in stack frame for ppc64
+31729,haosdent,cmd/go: respect -mod=readonly when performing 'mod verify'
+31627,Al2Klimov,net: introduce ListenConfig#AfterBind
+31595,coypoop,src/run.bash: print version when running tests
+31530,nsajko,cmd/asm: remove support for old assembly style AX:CX
+31523,LeeXun,cmd/dist: add flag to keep workdir
+31383,kichankwon,crypto/x509: use already parsed fields for certificate verification
+31245,DylanMeeus,cmd/gofmt: have the doc.go match -h output
+31171,nsajko,math/big: optimize amd64 asm shlVU and shrVU for shift==0 case
+31169,ZZMarquis,encoding/asn1: support marshal uint/uint8/uint16/uint32/uint64
+30808,nickmooney,time: fail when Parse is given a stdNumTZ as stdTZ
+30152,benitogf,sync: add examples for Map
+30034,Mottl,bufio: adds a comment about io.EOF in bufio.ReadLine()
+30024,leonklingele,database/sql: add missing error check in test
+30023,leonklingele,runtime/pprof/internal/profile: do not ignore error
+30014,leonklingele,internal/x/text/unicode/bidi: remove inefficient assignment
+29950,tiborvass,cmd/go: honor vendor.conf fork repositories in modconv
+29933,kevinkassimo,net: replace `' with `` to avoid breaking doc presentation
+29882,arthurkushman,net/http: add MethodSearch as http request method SEARCH (RFC7230/7231)
+29866,callum-oakley,net/http: track the state of HTTP/2 connections
+29726,kolbycrouch,cmd/go,cmd/link: Adds shared linking support for FreeBSD/amd64
+29460,cgopalan,net/url: give a proper error message on invalid character in scheme
+29179,laches1sm,runtime: PROCESS_ALL_ACCESS didn't check for 0XFFFF
+29140,robtimus,mime/multipart: allow custom content types to be given for form files
+29072,ChrisPortman,encoding/asn1: allow the user to specify the time format used to unmarshal
+28898,ChrisPortman,encoding/asn1: correctly parse GeneralizedTime
+28735,hellozee,encoding/json: document the unmarshalling of missing json fields
+28733,hellozee,html/template: document that comments are stripped from html templates
+28726,ghost,doc: add missing import of the log package
+28624,cn007b,encoding/json: add simple example
+28537,Silentd00m,math: add architecture independent maxint and maxuint
+28516,jamdagni86,encoding/json: json.Unmarshal fails to unmarshal a custom Unmarshaler struct field
+28487,cn007b,fmt: add additional example for Printf
+28385,crholm,encoding/xml: allow cdata/chardata to be named and nested with annotations
+27813,pjebs,encoding/json: Add "nonil" struct tag for json encoding of nil slices/maps
+27809,Houndie,doc/articles/wiki: remove misleading code in tutorial
+27742,eric-s-raymond,doc: clarify that signal receipt doesn't fire defer hooks
+27579,jcmturner,encoding/asn1: add ability to marshal to general string
+27068,moficodes,encoding/json, encoding/xml: say "embedded field" instead of "anonymous field"
+26932,marioarranzr,archive/zip: example to registerDecompressor
+26665,marwan-at-work,cmd/go/internal/modfetch: add unit tests to downloadZip
+26661,marwan-at-work,cmd/go/internal/modfetch: update proxy usage
+26023,arthurkushman,go/ast: add Filter func test on AST
+25564,Al2Klimov,os: respect setuid and setgid bit in Mkdir() on *nix
+25291,angeloc,cmd/dist: explicit option for crosscompilation
+25154,dominicbarnes,encoding/json: include property name for marshal errors
+24943,linzhp,cmd/go/internal/load: ignore vendor imports from testdata
+24868,linzhp,cmd/go/internal/load: assign .ImportPath and .Root for a testdata package in GOPATH properly
+23805,kirinrastogi,add function for bool in math/rand
