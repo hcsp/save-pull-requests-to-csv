@@ -6,8 +6,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -28,7 +26,7 @@ public class Crawler {
         HttpEntity httpEntity = response.getEntity();
         InputStream is = httpEntity.getContent();
         String result = CharStreams.toString(new InputStreamReader(is, Charsets.UTF_8));
-        JSONArray jsonArray =JSON.parseArray(result);
+        JSONArray jsonArray = JSON.parseArray(result);
         FileWriter fileWriter = new FileWriter(csvFile);
         fileWriter.write("id" + ",");
         fileWriter.write("title" + ",");
