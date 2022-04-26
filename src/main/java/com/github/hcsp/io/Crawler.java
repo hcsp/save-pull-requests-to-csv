@@ -27,19 +27,26 @@ public class Crawler {
         InputStream is = httpEntity.getContent();
         String result = CharStreams.toString(new InputStreamReader(is, Charsets.UTF_8));
         JSONArray jsonArray = JSON.parseArray(result);
-        FileWriter fileWriter = new FileWriter(csvFile);
-        fileWriter.write("id" + ",");
-        fileWriter.write("title" + ",");
-        fileWriter.write("auther" + "\n");
+        FileWriter fileWriter = new FileWriter(csvFile, true);
+        fileWriter.write("number" + ",");
+        fileWriter.write("author" + ",");
+        fileWriter.write("title" + "\n");
+        int i = 0;
         for (Object o : jsonArray) {
             JSONObject jsonObject = (JSONObject) o;
             int id = jsonObject.getInteger("number");
             fileWriter.write(id + ",");
+            String author = jsonObject.getJSONObject("user").getString("login");
+            fileWriter.write(author + ",");
             String title = jsonObject.getString("title");
-            fileWriter.write(title + ",");
-            String auther = jsonObject.getJSONObject("user").getString("login");
-            fileWriter.write(auther + "\n");
+            fileWriter.write(title + "\n");
+            i ++;
+            if (i >= n) {
+                break;
+            }
         }
+        fileWriter.flush();
+        fileWriter.close();
     }
 
 }
