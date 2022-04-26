@@ -1,11 +1,44 @@
 package com.github.hcsp.io;
 
-import java.io.File;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.google.common.base.Charsets;
+import com.google.common.io.CharStreams;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
+
+import java.io.*;
 
 public class Crawler {
     // 给定一个仓库名，例如"golang/go"，或者"gradle/gradle"，读取前n个Pull request并保存至csvFile指定的文件中，格式如下：
     // number,author,title
     // 12345,blindpirate,这是一个标题
     // 12345,FrankFang,这是第二个标题
-    public static void savePullRequestsToCSV(String repo, int n, File csvFile) {}
+    public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet("https://api.github.com/repos/" + repo + "pulls");
+        HttpResponse response = httpClient.execute(httpGet);
+        HttpEntity httpEntity = response.getEntity();
+        InputStream is = httpEntity.getContent();
+        String result = CharStreams.toString(new InputStreamReader(
+                is, Charsets.UTF_8));
+        JSONArray jsonArray = JSON.parseArray(result);
+        FileWriter fileWriter = new FileWriter(csvFile);
+        fileWriter.write("id" + ",");
+        fileWriter.write("title" + ",");
+        fileWriter.write("auther" + "\n");
+        for (Object o : jsonArray) {
+            JSONArray jsonObject = (JSONArray) o;
+            int id = jsonObject.getInteger(Integer.parseInt("number"));
+            fileWriter.write(id + ",");
+            String title = jsonObject.getString(Integer.parseInt("title"));
+            fileWriter.write(title + ",");
+            String auther = jsonObject.getJSONObject(Integer.parseInt("user")).getString("login");
+            fileWriter.write(auther + "\n");
+        }
+    }
+
 }
