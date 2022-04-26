@@ -40,7 +40,7 @@ public class Crawler {
             fileWriter.write(author + ",");
             String title = jsonObject.getString("title");
             fileWriter.write(title + "\n");
-            i ++;
+            i++;
             if (i >= n) {
                 break;
             }
