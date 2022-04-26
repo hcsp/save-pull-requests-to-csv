@@ -1,7 +1,8 @@
 package com.github.hcsp.io;
 
-import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 import org.apache.http.HttpEntity;
@@ -31,12 +32,12 @@ public class Crawler {
         fileWriter.write("title" + ",");
         fileWriter.write("auther" + "\n");
         for (Object o : jsonArray) {
-            JSONArray jsonObject = (JSONArray) o;
-            int id = jsonObject.getInteger(Integer.parseInt("number"));
+            JSONObject jsonObject = (JSONObject) o;
+            int id = jsonObject.getInteger("number");
             fileWriter.write(id + ",");
-            String title = jsonObject.getString(Integer.parseInt("title"));
+            String title = jsonObject.getString("title");
             fileWriter.write(title + ",");
-            String auther = jsonObject.getJSONObject(Integer.parseInt("user")).getString("login");
+            String auther = jsonObject.getJSONObject("user").getString("login");
             fileWriter.write(auther + "\n");
         }
     }
