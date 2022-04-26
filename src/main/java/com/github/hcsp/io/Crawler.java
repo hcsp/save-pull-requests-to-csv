@@ -8,7 +8,9 @@ import com.google.common.io.CharStreams;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.*;
@@ -19,14 +21,14 @@ public class Crawler {
     // 12345,blindpirate,这是一个标题
     // 12345,FrankFang,这是第二个标题
     public static void savePullRequestsToCSV(String repo, int n, File csvFile) throws IOException {
-        HttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet("https://api.github.com/repos/" + repo + "pulls");
-        HttpResponse response = httpClient.execute(httpGet);
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet("https://api.github.com/repos/" + repo + "/pulls");
+        CloseableHttpResponse response = httpClient.execute(httpGet);
+//        HttpResponse response = httpClient.execute(httpGet);
         HttpEntity httpEntity = response.getEntity();
         InputStream is = httpEntity.getContent();
-        String result = CharStreams.toString(new InputStreamReader(
-                is, Charsets.UTF_8));
-        JSONArray jsonArray = JSON.parseArray(result);
+        String result = CharStreams.toString(new InputStreamReader(is, Charsets.UTF_8));
+        JSONArray jsonArray =JSON.parseArray(result);
         FileWriter fileWriter = new FileWriter(csvFile);
         fileWriter.write("id" + ",");
         fileWriter.write("title" + ",");
