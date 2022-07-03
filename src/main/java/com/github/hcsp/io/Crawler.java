@@ -48,7 +48,7 @@ public class Crawler {
             HttpEntity entity1 = response1.getEntity();
 
             InputStream is = entity1.getContent();
-            String html = IOUtils.toString(is, Charset.defaultCharset());
+            String html = IOUtils.toString(is, "UTF-8");
             Document doc = Jsoup.parse(html);
             Elements newsHeadlines = doc.select(".js-active-navigation-container").select(".js-navigation-item");
             List<String> list = new ArrayList<>();
