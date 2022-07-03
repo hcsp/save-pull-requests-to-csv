@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
@@ -45,10 +46,9 @@ public class Crawler {
 // by the connection manager.
         try {
             HttpEntity entity1 = response1.getEntity();
-            // do something useful with the response body
-            // and ensure it is fully consumed
+
             InputStream is = entity1.getContent();
-            String html = IOUtils.toString(is, "UTF-8");
+            String html = IOUtils.toString(is, Charset.defaultCharset());
             Document doc = Jsoup.parse(html);
             Elements newsHeadlines = doc.select(".js-active-navigation-container").select(".js-navigation-item");
             List<String> list = new ArrayList<>();
