@@ -1,0 +1,11 @@
+number,author.title
+64300runtime/internal/atomic: deduplicate And/Or code on wasmmauri870
+64299runtime/internal/atomic: deduplicate And/Or code on armmauri870
+64296doc: document PCALIGN directivemauri870
+64273slices: optimize Compact and CompactFuncgo101
+64270reflect: tweak logic for 'case Array' in IsZerocallthingsoff
+64268internal/abi, runtime,  reflect, cmd: merge maxZero const into internal/abiqiulaidongfeng
+64263net/http: optimize http.Dir when files are not modified and add GODEUG to preserve old behaviorqiulaidongfeng
+64260all: gofmt -w -scallthingsoff
+64258internal/poll: change Fsync to fallback to syscall.Fsync on darwinmauri870
+64221internal/zstd: optimize buffer grow to avoid multiple allocationsaimuz
